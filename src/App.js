@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './utils/BooksAPI.js'
 import './App.css'
 
 const BooksApp = () => {
 
   const [books, setBooks] = useState([])
   const [showSearchPage, setShowSearchPage] = useState(false)
+
+  // Get books
+  useEffect(() => {
+    const getBooks = async () => {
+      const booksFromServer = await BooksAPI.getAll()
+      setBooks(booksFromServer)
+    }
+    getBooks()
+  }, [])
 
   return (
     <div className="app">
