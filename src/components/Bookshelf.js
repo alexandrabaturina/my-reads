@@ -2,8 +2,6 @@ import Book from './Book'
 
 const Bookshelf = ({ title, books }) => {
 
-    console.log(books)
-
     return (
         <div className="bookshelf">
             <h2 className="bookshelf-title">{title}</h2>
@@ -13,6 +11,7 @@ const Bookshelf = ({ title, books }) => {
                         <li key={book.id}>
                             <Book
                                 coverImage={book.imageLinks.thumbnail}
+                                shelf={book.shelf}
                                 title={book.title}
                                 authors={book.authors} />
                         </li>

@@ -1,4 +1,4 @@
-const Book = ({ coverImage, title, authors }) => {
+const Book = ({ coverImage, shelf, title, authors }) => {
 
     const bookCoverStyle = {
         width: 128,
@@ -13,10 +13,19 @@ const Book = ({ coverImage, title, authors }) => {
                 <div className="book-shelf-changer">
                     <select>
                         <option value="move" disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
+                        {shelf === "currentlyReading" ?
+                            <option value="currentlyReading" disabled>Currently Reading</option> :
+                            <option value="currentlyReading">Currently Reading</option>}
+                        {shelf === "read" ?
+                            <option value="read" disabled>Read</option> :
+                            <option value="read">Read</option>}
+                        {shelf === "wantToRead" ?
+                            <option value="wantToRead" disabled>Want to Read</option> :
+                            <option value="wantToRead">Want to Read</option>}
+                        {((shelf !== "currentlyReading") && (shelf !== "wantToRead") &&
+                            (shelf !== "read")) ?
+                            <option value="none" disabled>None</option> :
+                            <option value="none">None</option>}
                     </select>
                 </div>
             </div>
