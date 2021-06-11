@@ -1,6 +1,6 @@
 import Bookshelf from './Bookshelf'
 
-const ListBooks = ({ books }) => {
+const ListBooks = ({ books, onChangeBookshelf }) => {
 
     const currentlyReading = books.filter(book => book.shelf === "currentlyReading")
     const read = books.filter(book => book.shelf === "read")
@@ -15,13 +15,16 @@ const ListBooks = ({ books }) => {
             <div className="list-books-content">
                 <Bookshelf
                     title="Currently Reading"
-                    books={currentlyReading} />
+                    books={currentlyReading}
+                    onChangeBookshelf={onChangeBookshelf} />
                 <Bookshelf
                     title="Read"
-                    books={read} />
+                    books={read}
+                    onChangeBookshelf={onChangeBookshelf} />
                 <Bookshelf
                     title="Want To Read"
-                    books={wantToRead} />
+                    books={wantToRead}
+                    onChangeBookshelf={onChangeBookshelf} />
             </div>
         </div>
     )
