@@ -18,11 +18,13 @@ const BooksApp = () => {
     getBooks()
   }, [])
 
-  // Update shelf
+  // Update shelf data
   const updateBookshelf = (book, shelf) => {
     book.shelf = shelf
     BooksAPI.update(book, shelf)
-      .then(book => setBooks([...books, book]))
+      .then(res =>
+        setBooks(books.map(item => item.id === book.id ? book : item))
+      )
   }
 
   return (
@@ -31,7 +33,10 @@ const BooksApp = () => {
         <ListBooks
           books={books}
           onChangeBookshelf={updateBookshelf} />} />
-      <Route path="/search" component={BookSearch} />
+      <Route path="/search" render={() =>
+        <BookSearch
+          books={books}
+          onChangeBookshelf={updateBookshelf} />} />
     </div>
   )
 }
