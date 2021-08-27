@@ -3,10 +3,6 @@ import Bookshelf from './Bookshelf'
 
 const ListBooks = ({ books, onChangeBookshelf }) => {
 
-    const currentlyReading = books.filter(book => book.shelf === "currentlyReading")
-    const read = books.filter(book => book.shelf === "read")
-    const wantToRead = books.filter(book => book.shelf === "wantToRead")
-
     return (
         <div className="list-books">
             <div className="list-books-title">
@@ -16,20 +12,20 @@ const ListBooks = ({ books, onChangeBookshelf }) => {
             <div className="list-books-content">
                 <Bookshelf
                     title="Currently Reading"
-                    books={currentlyReading}
+                    books={books.filter(book => book.shelf === "currentlyReading")}
                     onChangeBookshelf={onChangeBookshelf} />
                 <Bookshelf
                     title="Read"
-                    books={read}
+                    books={books.filter(book => book.shelf === "read")}
                     onChangeBookshelf={onChangeBookshelf} />
                 <Bookshelf
                     title="Want To Read"
-                    books={wantToRead}
+                    books={books.filter(book => book.shelf === "wantToRead")}
                     onChangeBookshelf={onChangeBookshelf} />
             </div>
 
             <div className="open-search">
-                <Link to="/search">Add a book</Link>
+                <Link to="/search"><button>Add a book</button></Link>
             </div>
         </div>
     )
