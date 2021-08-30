@@ -5,3 +5,17 @@ The project has the following goals:
 * Manage state using [hooks](https://reactjs.org/docs/hooks-overview.html)
 * Build components
 * Leverage [React Router](https://reactrouter.com/web/guides/quick-start)
+
+## Getting Started
+To run **My Reads** app in dev mode:
+1. Clone this repo.
+2. ```cd``` into project directory.
+3. Install the dependencies by running the following commands:
+```sh
+npm install
+```
+4. Start the server by running the following command:
+```sh
+npm start
+```
+The ```http:localhost:3000``` page will be automatically opened in your browser.
