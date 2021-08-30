@@ -1,4 +1,5 @@
 # React ND #1: My Reads
+## Overview
 **My Reads** is the first project of Udacity [React nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019). It requires to build a bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read.
 The project has the following goals:
 * Use [React](https://reactjs.org/) to build the application
@@ -6,6 +7,16 @@ The project has the following goals:
 * Build components
 * Leverage [React Router](https://reactrouter.com/web/guides/quick-start)
 
+## Features
+* Main Page
+    * The main page shows 3 shelves for books:
+      * Currently Reading
+      * Read
+      * Want To Read
+      
+      Each book is shown on the correct shelf, along with its title and all of its authors.
+    * The main page shows a control that allows users to move books between shelves. The control is tied to each book instance.
+    * When the browser is refreshed, the same information is displayed on the page.
 ## Getting Started
 To run **My Reads** app in dev mode:
 1. Clone this repo.
