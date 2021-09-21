@@ -5,28 +5,31 @@ import Book from './Book'
 
 const BookSearch = ({ books, onChangeBookshelf }) => {
 
+    console.log(books)
+
     const [query, setQuery] = useState('')
     const [searchResults, setSearchResults] = useState([])
 
-    const searchBooks = q => {
-        BooksAPI.search(q)
-            .then(res => {
-                if (res) {
-                    if (res.error) {
-                        setSearchResults([])
-                    } else {
-                        setSearchResults(res)
-                    }
-                } else {
-                    console.log('Not found')
-                }
-            })
-
+    // Set current shelves
+    const setShelf = items => {
+        items.forEach(item => {
+            const overlap = books.find(book => book.id === item.id)
+            if (overlap) {
+                item.shelf = overlap.shelf
+            }
+        })
+        return items
     }
 
-    const updateQuery = e => {
-        setQuery(e.target.value)
-        searchBooks(e.target.value)
+    const searchBooks = q => {
+        BooksAPI.search(q)
+            .then(res =>
+                res.error ? setSearchResults([]) : setSearchResults(setShelf(res)))
+    }
+
+    const updateQuery = query => {
+        setQuery(query)
+        searchBooks(query)
     }
 
     return (
@@ -38,19 +41,19 @@ const BookSearch = ({ books, onChangeBookshelf }) => {
                         type="text"
                         placeholder="Search by title or author"
                         value={query}
-                        onChange={updateQuery} />
+                        onChange={(e) => updateQuery(e.target.value)} />
                 </div>
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">
-                    {searchResults && searchResults.map(book => (
-                        <li key={book.id}>
-                            <Book
-                                book={book}
-                                onChangeBookshelf={onChangeBookshelf} />
-                        </li>
-                    ))}
-
+                    {searchResults &&
+                        searchResults.map(book => (
+                            <li key={book.id}>
+                                <Book
+                                    book={book}
+                                    onChangeBookshelf={onChangeBookshelf} />
+                            </li>
+                        ))}
                 </ol>
             </div>
         </div>)
