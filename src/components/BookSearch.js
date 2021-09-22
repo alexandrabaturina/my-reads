@@ -5,8 +5,6 @@ import Book from './Book'
 
 const BookSearch = ({ books, onChangeBookshelf }) => {
 
-    console.log(books)
-
     const [query, setQuery] = useState('')
     const [searchResults, setSearchResults] = useState([])
 
@@ -23,8 +21,13 @@ const BookSearch = ({ books, onChangeBookshelf }) => {
 
     const searchBooks = q => {
         BooksAPI.search(q)
-            .then(res =>
-                res.error ? setSearchResults([]) : setSearchResults(setShelf(res)))
+            .then(res => {
+                if (res) {
+                    res.error ? setSearchResults([]) : setSearchResults(setShelf(res))
+                } else {
+                    return
+                }
+            })
     }
 
     const updateQuery = query => {
@@ -46,7 +49,7 @@ const BookSearch = ({ books, onChangeBookshelf }) => {
             </div>
             <div className="search-books-results">
                 <ol className="books-grid">
-                    {searchResults &&
+                    {searchResults && query !== '' &&
                         searchResults.map(book => (
                             <li key={book.id}>
                                 <Book
