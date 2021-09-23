@@ -18,6 +18,6 @@ const Bookshelf = ({ title, books, onChangeBookshelf }) => {
             </div>
         </div>
     )
-}
+};
 
-export default Bookshelf
+export default Bookshelf;

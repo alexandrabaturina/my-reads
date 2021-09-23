@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import Bookshelf from './Bookshelf'
+import { Link } from 'react-router-dom';
+import Bookshelf from './Bookshelf';
 
 const ListBooks = ({ books, onChangeBookshelf }) => {
 
@@ -31,4 +31,4 @@ const ListBooks = ({ books, onChangeBookshelf }) => {
     )
 }
 
-export default ListBooks
+export default ListBooks;

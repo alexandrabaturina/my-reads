@@ -1,29 +1,29 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import * as BooksAPI from '../utils/BooksAPI.js'
-import Book from './Book'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import * as BooksAPI from '../utils/BooksAPI.js';
+import Book from './Book';
 
 const BookSearch = ({ books, onChangeBookshelf }) => {
 
-    const [query, setQuery] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+    const [query, setQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
 
     // Set current shelves
     const setShelf = items => {
         items.forEach(item => {
-            const overlap = books.find(book => book.id === item.id)
+            const overlap = books.find(book => book.id === item.id);
             if (overlap) {
-                item.shelf = overlap.shelf
+                item.shelf = overlap.shelf;
             }
         })
-        return items
+        return items;
     }
 
     const searchBooks = q => {
         BooksAPI.search(q)
             .then(res => {
                 if (res) {
-                    res.error ? setSearchResults([]) : setSearchResults(setShelf(res))
+                    res.error ? setSearchResults([]) : setSearchResults(setShelf(res));
                 } else {
                     return
                 }
@@ -31,8 +31,8 @@ const BookSearch = ({ books, onChangeBookshelf }) => {
     }
 
     const updateQuery = query => {
-        setQuery(query)
-        searchBooks(query)
+        setQuery(query);
+        searchBooks(query);
     }
 
     return (
@@ -62,4 +62,4 @@ const BookSearch = ({ books, onChangeBookshelf }) => {
         </div>)
 }
 
-export default BookSearch
+export default BookSearch;

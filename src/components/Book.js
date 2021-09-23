@@ -2,13 +2,13 @@ const Book = ({ book, onChangeBookshelf }) => {
 
     const thumbnailURL = book.hasOwnProperty('imageLinks')
         ? `url("${book.imageLinks.thumbnail}")`
-        : 'none'
+        : 'none';
 
     const bookCoverStyle = {
         width: 128,
         height: 188,
         backgroundImage: `${thumbnailURL}`
-    }
+    };
 
     return (
         <div className="book">
@@ -39,4 +39,4 @@ const Book = ({ book, onChangeBookshelf }) => {
     )
 }
 
-export default Book
+export default Book;
