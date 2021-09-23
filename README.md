@@ -13,10 +13,12 @@ The project has the following goals:
       * Currently Reading
       * Read
       * Want To Read
-      
-      Each book is shown on the correct shelf, along with its title and all of its authors.
+    * Each book is shown on the correct shelf, along with its title and all of its authors.
     * The main page shows a control that allows users to move books between shelves. The control is tied to each book instance.
     * When the browser is refreshed, the same information is displayed on the page.
+    
+![image](https://user-images.githubusercontent.com/53233637/134568456-7e44c0d6-bd64-4ca1-880a-00a9d6550ffe.png)
+
 ## Getting Started
 To run **My Reads** app in dev mode:
 1. Clone this repo.
