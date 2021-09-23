@@ -8,7 +8,7 @@ The project has the following goals:
 * Leverage [React Router](https://reactrouter.com/web/guides/quick-start)
 
 ## Features
-* Main Page
+* **Main Page**
     * The main page shows 3 shelves for books:
       * Currently Reading
       * Read
@@ -18,6 +18,17 @@ The project has the following goals:
     * When the browser is refreshed, the same information is displayed on the page.
     
 ![image](https://user-images.githubusercontent.com/53233637/134568456-7e44c0d6-bd64-4ca1-880a-00a9d6550ffe.png)
+
+ * **Search Page**
+   * The search page has a search input field.
+   * As the user types into the search field, books that match the query are displayed on the page, along with their titles and authors.
+   * Search results are not shown when all of the text is deleted out of the search input box.
+   * Invalid queries are handled and prior search results are not shown.
+   * The search works correctly when a book does not have a thumbnail or an author.
+   * The user is able to search for multiple words, such as ```artificial intelligence```.
+
+![image](https://user-images.githubusercontent.com/53233637/134569173-a9724271-6dc1-47fc-b505-1dce38c99799.png)
+
 
 ## Getting Started
 To run **My Reads** app in dev mode:
