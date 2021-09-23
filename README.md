@@ -32,7 +32,22 @@ The project has the following goals:
   * **Routing**
     * The main page contains a link to the search page. When the link is clicked, the search page is displayed and the URL in the browser’s address bar is ```/search```.
     * The search page contains a link to the main page. When the link is clicked, the main page is displayed and the URL in the browser’s address bar is ```/```.
-
+ 
+## Backend Server
+Udacity provides ```BooksAPI.js``` file that contains the methods to perform necessary operations on the backend:
+* getAll
+* update
+* search
+### ```getAll()```
+* Returns a Promise which resolves to a JSON object containing a collection of book objects.
+* This collection represents the books currently in the bookshelves in the app.
+### ```update(book, shelf)```
+* **book**: ```<Object>``` containing at minimum an id attribute
+* **shelf**: ```<String>``` contains one of ["wantToRead", "currentlyReading", "read"]
+* Returns a Promise which resolves to a JSON object containing the response data of the POST request.
+### ```search(query)```
+* **query**: ```<String>```
+* Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects. These books do not know which shelf they are on. They are raw results only.
 ## Getting Started
 To run **My Reads** app in dev mode:
 1. Clone this repo.
@@ -46,3 +61,6 @@ npm install
 npm start
 ```
 The ```http:localhost:3000``` page will be automatically opened in your browser.
+
+## Authors
+Alexandra Baturina
