@@ -1,15 +1,19 @@
 const Book = ({ book, onChangeBookshelf }) => {
 
+    const thumbnailURL = book.hasOwnProperty('imageLinks')
+        ? `url("${book.imageLinks.thumbnail}")`
+        : 'none'
+
     const bookCoverStyle = {
         width: 128,
         height: 188,
-        backgroundImage: `url("${book.imageLinks.thumbnail}")`
+        backgroundImage: `${thumbnailURL}`
     }
 
     return (
         <div className="book">
             <div className="book-top">
-                {book.imageLinks.thumbnail && <div className="book-cover" style={bookCoverStyle}></div>}
+                {<div className="book-cover" style={bookCoverStyle}></div>}
                 <div className="book-shelf-changer">
                     <select onChange={e => onChangeBookshelf(book, e.target.value)}>
                         <option value="move">Move to...</option>
@@ -30,7 +34,7 @@ const Book = ({ book, onChangeBookshelf }) => {
                 </div>
             </div>
             <div className="book-title">{book.title}</div>
-            <div className="book-authors">{book.authors}</div>
+            {book.authors && <div className="book-authors">{book.authors}</div>}
         </div>
     )
 }
