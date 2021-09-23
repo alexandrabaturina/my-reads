@@ -29,6 +29,9 @@ The project has the following goals:
 
 ![image](https://user-images.githubusercontent.com/53233637/134569173-a9724271-6dc1-47fc-b505-1dce38c99799.png)
 
+  * **Routing**
+    * The main page contains a link to the search page. When the link is clicked, the search page is displayed and the URL in the browser’s address bar is ```/search```.
+    * The search page contains a link to the main page. When the link is clicked, the main page is displayed and the URL in the browser’s address bar is ```/```.
 
 ## Getting Started
 To run **My Reads** app in dev mode:
