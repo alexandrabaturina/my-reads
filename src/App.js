@@ -22,9 +22,19 @@ const BooksApp = () => {
   const updateBookshelf = (book, shelf) => {
     book.shelf = shelf
     BooksAPI.update(book, shelf)
-      .then(res =>
-        setBooks(books.map(item => item.id === book.id ? book : item))
-      )
+      .then(res => {
+        let exists = false
+        let tempBooks = books.map(item => {
+          if (item.id === book.id) {
+            exists = true
+            return book
+          } else { return item }
+        })
+        if (!exists) {
+          tempBooks.push(book)
+        }
+        setBooks(tempBooks)
+      })
   }
 
   return (
